@@ -1,64 +1,49 @@
-import java.util.*;
+//accept string from user and one word and return freq of that word 
+// Stirng str="ram is god, ram is a boy"
+// String word="ram";
+//output=2
+
+
 import java.io.*;
+import java.lang.*;
+import java.util.*;
 
- class All
-  {
-          
-   public int Count(String str,String word)
-   {
-      int count=0;
-      String arr[]=str.split(" ");
-      
-      for(int i=0;i<arr.length;i++)
-      {
-         if(word.equals(arr[i]))
-         {
-          count++;
-         }
-      }
-      return count;
-    }
-    
-    public String ReverseString(String str)
-    {
-          
-     String rev="";
-    
-     for(int i=str.length()-1;i>=0;i--)
+class Word_Freq
+ {
+     public int w_freq(String str,String word)
      {
-      rev=rev+str.charAt(i);      
-     }   
-          
-     return rev;
-    }
-    
-    
-    
+      int icnt=0;
+      String arr[]=str.split(" ");
+   
+               
+      for(int i=0;i<arr.length;i++)
+       {
+         if(word.equals(arr[i])) 
+         {
+           icnt++;
+         }       
+       }
+       return icnt;               
+     } 
  }
-
- class Sum
+ 
+ class  Word_Freq_Drive
  {
  
-  public static void main(String args[])
-  {
-  
-  
-  //  String str="Hi i Dilip love mumbai";
-    All obj=new All();
-  //  String word="Dilip";
-  //  System.out.println(obj.Count(str,word));
-    
-    
-    
-    System.out.println("Enter string");
-    Scanner read=new Scanner(System.in);
-    
-    String str=read.nextLine();
-    
-    System.out.println(obj.ReverseString(str)); 
-    
-    
-    
-     
-  } 
+   public static void main(String args[])
+     {
+       Word_Freq obj=new Word_Freq();
+       
+       Scanner s=new Scanner(System.in);
+       System.out.println("Enter str");
+       String str=s.nextLine();
+       
+       System.out.println("Enter word");
+       String word=s.nextLine();
+       
+       int icnt=obj.w_freq(str,word);     
+       
+       System.out.println("Total word Freq is "+icnt);
+     }
+ 
  }
