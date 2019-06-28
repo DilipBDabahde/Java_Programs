@@ -1,49 +1,57 @@
-//accept string from user and one word and return freq of that word 
-// Stirng str="ram is god, ram is a boy"
-// String word="ram";
-//output=2
+//accept string from user and count Freq of each word from that string
+//input:  str=" this is not a game this is challenge"
+//output: {this=2, is=2, not=1 ,a=1, game=1, challenge=1}
 
-
-import java.io.*;
-import java.lang.*;
-import java.util.*;
+import java.util.Scanner;
 
 class Word_Freq
  {
-     public int w_freq(String str,String word)
-     {
-      int icnt=0;
+    public void word_cnt(String str)
+    {
+      int i=0,j=0,icnt=0;
+      String space=" ";
       String arr[]=str.split(" ");
-   
-               
-      for(int i=0;i<arr.length;i++)
-       {
-         if(word.equals(arr[i])) 
+      
+      System.out.print("{");
+      for(i=0;i<arr.length;i++)
+      { 
+        if(arr[i]!=space)
+        {
+         for(j=0;j<arr.length;j++)
          {
-           icnt++;
-         }       
-       }
-       return icnt;               
-     } 
+            if(arr[i].equals(arr[j]))
+            {
+              icnt++;
+            }
+         }
+                  
+         String str2=arr[i];       
+         
+         for(j=0;j<arr.length;j++)
+         {
+           if(arr[j].equals(str2))
+           {
+             arr[j]=space;
+           }         
+         }         
+         System.out.print(str2+"="+icnt+",");
+         icnt=0;         
+        }
+      }
+      System.out.println("}");        
+    }
  }
  
- class  Word_Freq_Drive
- {
  
-   public static void main(String args[])
-     {
-       Word_Freq obj=new Word_Freq();
-       
+ class Word_Counter
+  {
+    public static void main(String arg[])
+    {
        Scanner s=new Scanner(System.in);
-       System.out.println("Enter str");
-       String str=s.nextLine();
+       Word_Freq wf=new Word_Freq();
        
-       System.out.println("Enter word");
-       String word=s.nextLine();
-       
-       int icnt=obj.w_freq(str,word);     
-       
-       System.out.println("Total word Freq is "+icnt);
-     }
- 
- }
+       System.out.println("Enter string");
+       String str=s.nextLine();       
+       wf.word_cnt(str);    
+    }  
+  }
