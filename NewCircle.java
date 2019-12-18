@@ -41,30 +41,12 @@ class Circle
  	}
   }
   
-  
-  class Geomatry
-  {
-  	public static void main(String args[])
-  	{
-  	
-  		System.out.println("Inside main:");
-  		
-  		Circle cobj = new Circle(3.9f);
-  		
-  		float fret = 0.0f;
-  		
-  		fret =cobj.Area();
-  		
-  		System.out.println("Area is: "+fret);
-  		
-  		NewCircle Nobj = new NewCircle(6.2f);
-  		
-  		fret = cobj.Area();
-  		System.out.println("Area is"+fret);
-  		
-  		fret = Nobj.Circum();
-  		System.out.println("Circum is"+ fret);
-  	}
-  
-  
-  }
+ class CircleDriver
+ {
+ 	public static void main(String args[])
+ 	{
+ 		NewCircle cobj = new NewCircle(5.0f);
+ 		float res = cobj.Circum();
+ 		System.out.println(res);
+ 	}
+ }
